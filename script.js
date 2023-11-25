@@ -5,15 +5,39 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 
 function search(str) {
 	let results = [];
-
+	const lowercased = str.toLowerCase();
+	const fruitLowercase = fruit.map(word => word.toLowerCase());
+	fruitLowercase.filter((fruits) => {
+		if (fruits.includes(lowercased)) {
+			return results.push(fruits.charAt(0).toUpperCase() + fruits.slice(1));
+		};
+	});
 	// TODO
-
+	console.log(results);
 	return results;
 }
 
+let string = '';
 function searchHandler(e) {
 	// TODO
-}
+	console.log(e);
+	console.log(e.key);
+	console.log(e.type);
+	const letters = 'abcdefghijklmnopqrstuvwxyz';
+	// const fruitLowercase = fruit.map(word => word.toLowerCase());
+	const eLowercase = e.key.toLowerCase();
+	// let string = '';
+	// console.log(fruitLowercase);
+	console.log(eLowercase);
+	if (letters.includes(eLowercase)) {
+		for (let letter in eLowercase) {
+			string += eLowercase[letter];
+		}
+		console.log(string);
+		search(string);
+		// search(eLowercase);
+	}
+};
 
 function showSuggestions(results, inputVal) {
 
