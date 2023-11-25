@@ -35,6 +35,7 @@ input {
 
 ul {
   /* TODO */
+  list-style-type: none;
 }
 
 ul.has-suggestions {

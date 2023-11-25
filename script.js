@@ -20,27 +20,39 @@ function search(str) {
 let string = '';
 function searchHandler(e) {
 	// TODO
-	console.log(e);
-	console.log(e.key);
-	console.log(e.type);
+	// console.log(e);
+	// console.log(e.key);
 	const letters = 'abcdefghijklmnopqrstuvwxyz';
 	// const fruitLowercase = fruit.map(word => word.toLowerCase());
 	const eLowercase = e.key.toLowerCase();
 	// let string = '';
 	// console.log(fruitLowercase);
-	console.log(eLowercase);
+	// console.log(eLowercase);
 	if (letters.includes(eLowercase)) {
 		for (let letter in eLowercase) {
 			string += eLowercase[letter];
 		}
-		console.log(string);
-		search(string);
+		// console.log(string);
+		showSuggestions(search(string), input.value);
 		// search(eLowercase);
 	}
 };
 
 function showSuggestions(results, inputVal) {
-
+	let inputTimes = 0;
+	if (inputVal.length > inputTimes) { suggestions.replaceChildren() }
+	for (let i = 0; i < results.length; i++) {
+		// if (inputVal.length > 1) { suggestions.removeChild(newSuggest) }
+		const newSuggest = document.createElement('li');
+		// if (inputVal.length > 0) { suggestions.removeChild(newSuggest) }
+		newSuggest.innerText = results[i];
+		suggestions.appendChild(newSuggest);
+		inputTimes++;
+		// if (inputVal.length > inputTimes) { suggestions.removeChild(newSuggest) }
+		// if (inputVal.length > inputTimes) { suggestions.replaceChildren() }
+	};
+	// if (inputVal.length > inputTimes) { suggestions.removeChild(newSuggest) }
+	// if (inputVal.length > inputTimes) { newSuggest.remove() }
 	// TODO
 }
 
