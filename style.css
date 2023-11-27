@@ -9,7 +9,8 @@
 body {
   /* TODO */
   background: linear-gradient(to right, yellow, orangered);
-
+  display: flex;
+  position: relative;
 }
 
 input {
@@ -18,24 +19,44 @@ input {
 
 .search-container {
   /* TODO */
+  width: 220px;
+  position: relative;
+  margin: 50%;
+  /* padding-right: 10px; */
+  /* margin-left: 50%; */
+  /* margin-top: 25rem; */
+
 }
 
 .search-container input,
 .search-container .suggestions {
   /* TODO */
+  /* width: 200px; */
+  background-color: white;
+  opacity: 0.6;
 }
 
 .search-container input {
   /* TODO */
+  border: none;
+  margin-bottom: 0;
+  padding: 10px;
 }
 
 .search-container .suggestions {
   /* TODO */
+  margin-top: -15px;
+  padding-right: 10px;
+
 }
 
 ul {
   /* TODO */
+  padding: 0;
   list-style-type: none;
+  display: flexbox;
+  /* position: relative; */
+
 }
 
 ul.has-suggestions {
@@ -44,6 +65,15 @@ ul.has-suggestions {
 
 ul li {
   /* TODO */
+  font-weight: bold;
+  width: 180px;
+  /* padding: 15px; */
+  padding: 15px 20px 15px 15px;
+  /* padding: 15px 20px; */
+  position: relative;
+  margin-top: -20;
+  /* margin-left: -5px; */
+  margin-right: -40px;
 }
 
 ul li:hover {
