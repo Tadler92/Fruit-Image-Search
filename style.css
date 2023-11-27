@@ -8,7 +8,7 @@
 
 body {
   /* TODO */
-  background: linear-gradient(to right, yellow, orange);
+  background: linear-gradient(to right, yellow, orangered);
 
 }
 
@@ -48,6 +48,8 @@ ul li {
 
 ul li:hover {
   /* TODO */
+  background-color: orangered;
+  cursor: pointer;
 }
 
 input {
