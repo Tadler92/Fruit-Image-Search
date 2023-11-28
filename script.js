@@ -51,7 +51,11 @@ function searchHandler(e) {
 		// search(eLowercase);
 	}
 	else if (e.key === 'Backspace') {
-		if (input.value === '') return;
+		if (input.value === '') {
+			suggestions.replaceChildren();
+			string = '';
+			return;
+		}
 		string = input.value;
 		showSuggestions(search(string), input.value);
 	}
