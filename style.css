@@ -4,10 +4,13 @@
 
 :focus {
   /* TODO */
+  border: 1px solid orangered;
 }
 
 body {
   /* TODO */
+  /* width: 100%;
+  height: 100%; */
   background: linear-gradient(to right, yellow, orangered);
   display: flex;
   position: relative;
@@ -15,25 +18,57 @@ body {
 
 input {
   /* TODO */
+  background-color: transparent;
+}
+
+@media (min-width: 800px) {
+  .search-container {
+    position: relative;
+    left: 45em;
+    top: 20em;
+    /* margin-top: 50%;
+    margin-bottom: 50%; */
+  }
+}
+
+@media (max-width: 799px) {
+  .search-container {
+    position: relative;
+    left: 20em;
+    top: 20em;
+  }
 }
 
 .search-container {
   /* TODO */
+  /* background-color: #ff450090; */
+  background-color: #ffffff30;
+  /* background-color: transparent; */
   width: 220px;
   position: relative;
-  margin: 50%;
+  /* margin: 50%; */
+  /* top: 20em; */
+  /* left: 50%; */
+  /* left: 20em; */
   /* padding-right: 10px; */
   /* margin-left: 50%; */
   /* margin-top: 25rem; */
-
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+  /* top: 5rem; */
 }
 
 .search-container input,
 .search-container .suggestions {
   /* TODO */
   /* width: 200px; */
-  background-color: white;
-  opacity: 0.6;
+  /* background-color: rgb(232, 241, 192); */
+  /* background: linear-gradient(to right, yellow, orangered); */
+  /* background-color: #ff450040; */
+  /* background-color: transparent; */
+  /* background-color: rgba(255, 0, 0, 0.5); */
+  opacity: 0.9;
 }
 
 .search-container input {
@@ -53,6 +88,7 @@ input {
 ul {
   /* TODO */
   padding: 0;
+  margin-bottom: 0;
   list-style-type: none;
   display: flexbox;
   /* position: relative; */
@@ -82,6 +118,6 @@ ul li:hover {
   cursor: pointer;
 }
 
-input {
+/* input {
   /* TODO */
-}
+/* }  */
