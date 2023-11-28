@@ -4,17 +4,18 @@ const suggestions = document.querySelector('.suggestions ul');
 const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
 let inputTimes = 0;
-let results = new Set();
+// let results = new Set();
 function search(str) {
-	// let results = [];
-	if (inputTimes > 0) { inputTimes = 0; results.clear() }
-	if (results.size >= 0) {
+	let results = [];
+	// if (inputTimes > 0) { inputTimes = 0; results.clear() }
+	// if (results.size >= 0) {
+	if (results.length >= 0) {
 		const lowercased = str.toLowerCase();
 		const fruitLowercase = fruit.map(word => word.toLowerCase());
 		fruitLowercase.filter((fruits) => {
 			if (fruits.includes(lowercased)) {
-				// return results.push(fruits.charAt(0).toUpperCase() + fruits.slice(1));
-				return results.add(fruits.charAt(0).toUpperCase() + fruits.slice(1));
+				return results.push(fruits.charAt(0).toUpperCase() + fruits.slice(1));
+				// return results.add(fruits.charAt(0).toUpperCase() + fruits.slice(1));
 			};
 		});
 	};
@@ -49,6 +50,11 @@ function searchHandler(e) {
 		// showSuggestions(search(string), inputTimes);
 		// search(eLowercase);
 	}
+	else if (e.key === 'Backspace') {
+		if (input.value === '') return;
+		string = input.value;
+		showSuggestions(search(string), input.value);
+	}
 };
 
 function showSuggestions(results, inputVal) {
@@ -61,14 +67,16 @@ function showSuggestions(results, inputVal) {
 	if (inputVal !== '') { suggestions.replaceChildren() }
 	inputTimes++;
 	console.log(inputTimes);
-	const arrResults = Array.from(results);
+	// const arrResults = Array.from(results);
 	for (let i = 0; i < 7; i++) {
-		if (arrResults[i] === undefined) return;
+		// if (arrResults[i] === undefined) return;
+		if (results[i] === undefined) return;
 		// for (let fruits of results) {
 		// if (inputVal.length > 1) { suggestions.removeChild(newSuggest) }
 		const newSuggest = document.createElement('li');
 		// if (inputVal.length > 0) { suggestions.removeChild(newSuggest) }
-		newSuggest.innerText = arrResults[i];
+		// newSuggest.innerText = arrResults[i];
+		newSuggest.innerText = results[i];
 		// newSuggest.innerText = fruits;
 		suggestions.appendChild(newSuggest);
 		// inputTimes++;
@@ -93,14 +101,14 @@ function useSuggestion(e) {
 		input.value = e.target.innerText;
 		suggestions.replaceChildren();
 		inputTimes = 0;
-		results.clear();
+		// results.clear();
 		string = '';
 		suggestions.classList.remove('has-suggestions');
 		console.log(inputTimes);
-		console.log('This is the results Set from useSuggestion()', results);
+		// console.log('This is the results Set from useSuggestion()', results);
 	}
 }
-console.log('This is the results Set outside of all functions', results);
+// console.log('This is the results Set outside of all functions', results);
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
 // document.querySelector('body').addEventListener('keyup', (e) => {
