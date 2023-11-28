@@ -83,8 +83,59 @@ function useSuggestion(e) {
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
-// document.querySelector('body').addEventListener('keyup', (e) => {
-// 	e.preventDefault();
-// 	console.log(e.key);
 
-// })
+let fruitEmojis = {
+	Apple: '&#127822',
+	'Custard Apple': '&#127854; &#127822',
+	'Avocado 🥑': '&#129361',
+	Banana: '&#127820',
+	Blueberry: '&#129744',
+	Bilberry: '&#129744',
+	Boysenberry: '&#129744',
+	Cherry: '&#127826',
+	Cranberry: '&#127826; &#129744; &#127815',
+	Coconut: '&#129381',
+	Cucumber: '&#129362',
+	Grape: '&#127815',
+	Kiwifruit: '&#129373',
+	Lemon: '&#127819',
+	Lime: '&#127819; &#129001',
+	Mango: '&#129389',
+	Melon: '&#127816',
+	Cantaloupe: '&#127816',
+	Honeydew: '&#127816',
+	Dragonfruit: '&#128009; &#127816',
+	Watermelon: '&#127817',
+	Tangerine: '&#127818',
+	Orange: '&#127818',
+	Olive: '&#129746',
+	Peach: '&#127825',
+	Apricot: '&#127825',
+	Pear: '&#127824',
+	Pineapple: '&#127821',
+	Strawberry: '&#127827',
+}
+let enterTimes = 0;
+document.querySelector('body').addEventListener('keyup', (e) => {
+	e.preventDefault();
+	console.log(e);
+	console.log(e.key);
+	// if (e.key !== "Enter") return;
+	if (e.key === 'Enter') {
+		enterTimes++;
+		if (enterTimes > 1) {
+			document.querySelector('.selected-fruit').replaceChildren();
+		}
+		if (fruitEmojis[`${input.value}`] === undefined) {
+			alert(`No image available for chosen fruit. Please try another🙂`)
+			return;
+		}
+		const fruitImage = document.createElement('p');
+		fruitImage.innerHTML = fruitEmojis[`${input.value}`];
+		// fruitImage.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_Delicious.jpg/182px-Red_Delicious.jpg">';
+		// fruitImage.innerHTML = '<img src="https://png.pngtree.com/png-clipart/20230414/original/pngtree-red-apple-fruit-realistic-transparent-png-image_9057112.png">';
+		document.querySelector('.selected-fruit').appendChild(fruitImage)
+		input.value = '';
+		suggestions.replaceChildren();
+	}
+})
