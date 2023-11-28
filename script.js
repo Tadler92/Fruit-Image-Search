@@ -19,7 +19,7 @@ function search(str) {
 		});
 	};
 	// TODO
-	console.log(results);
+	console.log('This is the results Set from search()', results);
 	return results;
 }
 
@@ -54,18 +54,22 @@ function searchHandler(e) {
 function showSuggestions(results, inputVal) {
 	// let inputTimes = 0;
 	console.log(inputTimes);
-	if (inputVal.length === 0) { inputTimes = 1; suggestions.replaceChildren() }
-	else if (inputVal.length > inputTimes) { suggestions.replaceChildren(); }
-	// if (inputVal > inputTimes) { suggestions.replaceChildren() }
+	suggestions.classList.add('has-suggestions');
+	// if (inputVal.length === 0) { inputTimes = 1; suggestions.replaceChildren() }
+	// else if (inputVal.length > inputTimes) { suggestions.replaceChildren(); }
+	// if (inputVal.length > inputTimes) { suggestions.replaceChildren() }
+	if (inputVal !== '') { suggestions.replaceChildren() }
 	inputTimes++;
 	console.log(inputTimes);
-	// for (let i = 0; i < results.length; i++) {
-	for (let fruits of results) {
+	const arrResults = Array.from(results);
+	for (let i = 0; i < 7; i++) {
+		if (arrResults[i] === undefined) return;
+		// for (let fruits of results) {
 		// if (inputVal.length > 1) { suggestions.removeChild(newSuggest) }
 		const newSuggest = document.createElement('li');
 		// if (inputVal.length > 0) { suggestions.removeChild(newSuggest) }
-		// newSuggest.innerText = results[i];
-		newSuggest.innerText = fruits;
+		newSuggest.innerText = arrResults[i];
+		// newSuggest.innerText = fruits;
 		suggestions.appendChild(newSuggest);
 		// inputTimes++;
 		// console.log(inputTimes);
@@ -90,10 +94,12 @@ function useSuggestion(e) {
 		suggestions.replaceChildren();
 		inputTimes = 0;
 		results.clear();
+		string = '';
+		suggestions.classList.remove('has-suggestions');
 		console.log(inputTimes);
-		console.log(results);
+		console.log('This is the results Set from useSuggestion()', results);
 	}
 }
-
+console.log('This is the results Set outside of all functions', results);
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
