@@ -65,6 +65,8 @@ function showSuggestions(results, inputVal) {
 	// let inputTimes = 0;
 	console.log(inputTimes);
 	suggestions.classList.add('has-suggestions');
+	let inputLowercase = inputVal.toLowerCase();
+	let resultLowercase = results.map((suggestion) => { return suggestion.toLowerCase() });
 	// if (inputVal.length === 0) { inputTimes = 1; suggestions.replaceChildren() }
 	// else if (inputVal.length > inputTimes) { suggestions.replaceChildren(); }
 	// if (inputVal.length > inputTimes) { suggestions.replaceChildren() }
@@ -80,7 +82,14 @@ function showSuggestions(results, inputVal) {
 		const newSuggest = document.createElement('li');
 		// if (inputVal.length > 0) { suggestions.removeChild(newSuggest) }
 		// newSuggest.innerText = arrResults[i];
-		newSuggest.innerText = results[i];
+		// newSuggest.innerText = results[i];
+		// if (resultLowercase.includes(inputLowercase)) {
+		// newSuggest.innerHTML = results[i].replace(inputVal, `<b>${inputVal}</b>`);
+		// 	return newSuggest.innerHTML;
+		// }
+		// newSuggest.innerHTML = resultLowercase[i].replace(inputVal, `<b>${inputLowercase}</b>`)
+		newSuggest.innerHTML = resultLowercase[i].replace(inputLowercase, `<b>${inputLowercase}</b>`)
+		// newSuggest.innerHTML = resultLowercase[i].replace(inputVal, `<b>${inputLowercase}</b>`).charAt(0).toUpperCase() + resultLowercase[i].slice(1);
 		// newSuggest.innerText = fruits;
 		suggestions.appendChild(newSuggest);
 		// inputTimes++;
