@@ -103,3 +103,8 @@ function useSuggestion(e) {
 console.log('This is the results Set outside of all functions', results);
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+// document.querySelector('body').addEventListener('keyup', (e) => {
+// 	e.preventDefault();
+// 	console.log(e.key);
+
+// })
