@@ -25,6 +25,15 @@ input {
     left: 45em;
     top: 20em;
   }
+
+  .selected-fruit {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    top: 10em;
+    right: -800px;
+
+  }
 }
 
 @media (max-width: 799px) {
@@ -33,11 +42,25 @@ input {
     left: 20em;
     top: 20em;
   }
+
+  .selected-fruit {
+    width: 500px;
+    height: 200px;
+    position: relative;
+    top: 1.5em;
+    left: 100px;
+  }
 }
 
 .search-container {
   /* TODO */
+<<<<<<< HEAD
   background-color: #ffffff30;
+=======
+  /* background-color: #ff450090; */
+  /* background-color: #ffffff30; */
+  /* background-color: transparent; */
+>>>>>>> Adding-Images
   width: 215px;
   position: relative;
 }
@@ -50,10 +73,11 @@ input {
 
 .search-container input {
   /* TODO */
+  background-color: #ffffff30;
   border: none;
   border-bottom: 1px solid orangered;
   margin-bottom: 0;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
 }
 
 .search-container .suggestions {
@@ -74,12 +98,19 @@ ul {
 ul.has-suggestions {
   /* TODO */
   text-transform: capitalize;
+  background-color: #ffffff30;
 }
 
 ul li {
   /* TODO */
   width: 180px;
+<<<<<<< HEAD
   padding: 15px 20px 15px 15px;
+=======
+  /* padding: 15px; */
+  padding: 15px 10px 15px 15px;
+  /* padding: 15px 20px; */
+>>>>>>> Adding-Images
   position: relative;
   margin-top: -20;
   margin-right: -40px;
@@ -91,6 +122,19 @@ ul li:hover {
   cursor: pointer;
 }
 
-/* input {
+.selected-fruit {
   /* TODO */
-/* }  */
+  margin: 0;
+  /* width: 500px; */
+  position: relative;
+  /* left: -200px; */
+
+}
+
+/* img {
+  width: 100%;
+} */
+p {
+  /* display: inline-block; */
+  font-size: 100px;
+}
