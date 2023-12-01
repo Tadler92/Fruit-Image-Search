@@ -54,13 +54,9 @@ input {
 
 .search-container {
   /* TODO */
-<<<<<<< HEAD
-  background-color: #ffffff30;
-=======
   /* background-color: #ff450090; */
-  /* background-color: #ffffff30; */
+  /* background-color: #ffffff30; --> This was made a comment when merged*/
   /* background-color: transparent; */
->>>>>>> Adding-Images
   width: 215px;
   position: relative;
 }
@@ -104,13 +100,10 @@ ul.has-suggestions {
 ul li {
   /* TODO */
   width: 180px;
-<<<<<<< HEAD
-  padding: 15px 20px 15px 15px;
-=======
   /* padding: 15px; */
   padding: 15px 10px 15px 15px;
+  /* "10px" Above was decreased from 20px with merge */
   /* padding: 15px 20px; */
->>>>>>> Adding-Images
   position: relative;
   margin-top: -20;
   margin-right: -40px;
