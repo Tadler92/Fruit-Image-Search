@@ -82,6 +82,7 @@ function useSuggestion(e) {
 }
 
 input.addEventListener('keyup', searchHandler);
+input.addEventListener('touchend', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
 
 let fruitEmojis = {
